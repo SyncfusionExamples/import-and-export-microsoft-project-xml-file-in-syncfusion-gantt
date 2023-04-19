@@ -2,8 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Gantt</title>
-    <link href="https://cdn.syncfusion.com/ej2/17.1.38/material.css" rel="stylesheet">
-    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+    <!-- Essential JS 2 all material theme -->
+    <link href="https://cdn.syncfusion.com/ej2/21.1.35/material.css" rel="stylesheet" type="text/css" />
+    <!-- Essential JS 2 all script -->
+    <script src="http://cdn.syncfusion.com/ej2/21.1.35/dist/ej2.min.js" type="text/javascript"></script>
     <script src="scripts/XMLImportExporthelper.js"></script>
     <style>
         #Default .e-import-icon:before {
@@ -21,7 +23,7 @@
     </style>
 </head>
 <body>
-    <div id="Default">
+    <div id="Default" style="margin-top:60px">
         <input type='file' id='fileupload' name='UploadFiles' />
     </div>
     <script>
@@ -105,7 +107,7 @@
             showFileList: false,
             selected: function (args) {
                 ej.popups.showSpinner(document.getElementById('Default'));
-                xmlImport({ file: args.filesData[0].rawFile });
+                xmlImport({ file: args.filesData[0].rawFile }, "https://localhost:7281/api/XmlImport/Import" );
             }
         });
         uploadObj.appendTo('#fileupload');

@@ -10,7 +10,7 @@ function getFormData(options) {
         return options;
 }
 /*Import method for XML formatted file*/
-function xmlImport(options) {
+function xmlImport(options, ImportService) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {     
         if (xmlHttp.readyState == 4) {
@@ -22,7 +22,7 @@ function xmlImport(options) {
             }
         }
     }
-    xmlHttp.open("post", "https://localhost:7281/api/XmlImport/Import", true);
+    xmlHttp.open("post", ImportService, true);
     xmlHttp.send(getFormData(options));
 }
 function success(e) {
